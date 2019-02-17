@@ -7,7 +7,7 @@ namespace WomenAccessoriesShop.Models
 {
     public interface IAccessoryRepository
     {
-        IEnumerable<Accessory> GetAccessories { get; }
+        IEnumerable<Accessory> GetAccessories();
         Accessory GetAccessory(int AccessoryId);
     }
 }

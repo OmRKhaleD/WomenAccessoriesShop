@@ -10,15 +10,13 @@ namespace WomenAccessoriesShop.Controllers
     public class AccessoryController : Controller
     {
         IAccessoryRepository _accessoryRepository;
-        ICategoryRepository _categoryRepository;
-        public AccessoryController(IAccessoryRepository accessoryRepository,ICategoryRepository categoryRepository)
+        public AccessoryController(IAccessoryRepository accessoryRepository)
         {
             _accessoryRepository = accessoryRepository;
-            _categoryRepository = categoryRepository;
         }
         public IActionResult Index()
         {
-            return View(_accessoryRepository.GetAccessories);
+            return View(_accessoryRepository.GetAccessories());
         }
     }
 }
