@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WomenAccessoriesShop.Models;
+using WomenAccessoriesShop.Models.Repositories;
 
 namespace WomenAccessoriesShop
 {
@@ -28,6 +29,7 @@ namespace WomenAccessoriesShop
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
