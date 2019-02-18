@@ -41,7 +41,15 @@ namespace WomenAccessoriesShop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes=> {
+                routes.MapRoute(
+                    name: "categoryfilter",
+                    template:"Home/{action}/{category?}",
+                    defaults:new { Controller="Home",action="index"});
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
